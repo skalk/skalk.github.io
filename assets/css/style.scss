@@ -1,0 +1,27 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+footer a {
+  text-decoration: none;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+ul.post-list {
+  padding-left: 0px;
+  list-style: none;
+}
+
+a.post-link {
+  color: #222222;
+}
+
+a.post-link:hover {
+  color: #222222;
+}

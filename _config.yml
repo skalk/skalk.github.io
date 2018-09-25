@@ -1,1 +1,7 @@
 theme: jekyll-theme-slate
+title: System Programming
+description: (foolery and insights by skalk)
+
+
+plugins:
+    - jekyll-feed
