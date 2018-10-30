@@ -24,12 +24,13 @@ to install the bootloader correctly on an SD-card, I decided to boot all boards
 with a self-compiled Linux kernel over network, and use one and the same Debian
 based root-filesystem via NFS. That approach worked straight forward.
 
-So here are the results for Arndale, Pandaboard, Rasperry Pi 1, and Wandboard Quad
-measured running Linux, Genode/HW, Genode/sel4, and Genode/Fiasco.OC. It is assumed
-that Linux configures the device in an optimal fashion regarding the clocking,
-voltage, and caching attributes to gain maximum cpu and memory speed. On Linux the
-test times were measured on-target. On Genode I've measures timing off-target to
-circumvent wrongly configured clocks.
+So here are the results for Arndale, Pandaboard, Rasperry Pi 1, i.MX53
+Quickstart board and Wandboard Quad measured running Linux, Genode/HW,
+Genode/sel4, and Genode/Fiasco.OC. It is assumed that Linux configures the
+device in an optimal fashion regarding the clocking, voltage, and caching
+attributes to gain maximum cpu and memory speed. On Linux the test times were
+measured on-target. On Genode I've measures timing off-target to circumvent
+wrongly configured clocks.
 
 The bogomips test measures bogus instructions analoque to the measurement in the
 Linux kernel. It performs 2 billions of increment operations in a register. So it
@@ -104,6 +105,27 @@ libc memset     | 1998 MB/s      | 662 MB/s  | 477 MB/s
 uncached write  | -              | 87 MB/s   | 58 MB/s
 ----------------|----------------|-----------|----------
 uncached read   | -              | 192 MB/s  | 156 MB/s
+
+
+## i.MX53 Quickstart board
+
+Test / Kernel   | Linux baseline | HW
+----------------|----------------|-----------
+bogomips        | 497 BMIPS      | 499 BMIPS 
+----------------|----------------|-----------
+bytewise memcpy | 343 MB/s       | 168 MB/s   
+----------------|----------------|-----------
+base-lib memcpy | -              | 200 MB/s  
+----------------|----------------|-----------
+base-lib memset | -              | 200 MB/s  
+----------------|----------------|-----------
+libc memcpy     | 726 MB/s       | 175 MB/s   
+----------------|----------------|-----------
+libc memset     | 818 MB/s       | 808 MB/s  
+----------------|----------------|-----------
+uncached write  | -              | 197 MB/s  
+----------------|----------------|-----------
+uncached read   | -              |  45 MB/s  
 
 
 ## Raspberry PI
